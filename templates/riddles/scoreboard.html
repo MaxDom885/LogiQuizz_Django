@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tableau des scores - Jeu de devinettes{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/scoreboard.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="scoreboard-container">
+    <h1 class="text-center mb-4">Tableau des scores</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Utilisateur</th>
+          <th scope="col">Devinette</th>
+          <th scope="col">Temps (secondes)</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for score in scores %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ score.user.username }}</td>
+            <td>{{ score.riddle.question }}</td>
+            <td>{{ score.time_taken }}</td>
+            <td>{{ score.date_played|date:"d/m/Y H:i" }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

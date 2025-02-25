@@ -1,0 +1,29 @@
+.scoreboard-container {
+    padding: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-hit-pink);
+  }
+  
+  .table th {
+    background-color: var(--color-crusta);
+    color: white;
+  }
+  
+  .table tbody tr:hover {
+    background-color: var(--color-cinderella);
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(252, 179, 139, 0.1);  /* Hit Pink avec 10% d'opacité */
+  }

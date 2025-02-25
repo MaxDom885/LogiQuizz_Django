@@ -1,0 +1,122 @@
+/* Définir les variables de couleur */
+:root {
+    --color-crusta: #fc783b;       /* Couleur principale */
+    --color-cinderella: #fce4d5;   /* Couleur de fond */
+    --color-hit-pink: #fcb38b;     /* Couleur secondaire */
+    --color-cherokee: #fccd9b;     /* Couleur d'accentuation */
+  }
+  
+  /* Styles de base */
+  body {
+    background-color: var(--color-cinderella);
+    color: #333;                   /* Couleur de texte par défaut */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* En-tête */
+  header {
+    background-color: var(--color-crusta);
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Navigation */
+  nav {
+    background-color: var(--color-hit-pink);
+    padding: 10px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Boutons */
+  .btn-primary {
+    background-color: var(--color-crusta);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--color-hit-pink);
+  }
+
+  .btn-secondary {
+    background-color: var(--color-cherokee);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--color-hit-pink);
+  }
+  
+  /* Pied de page */
+  footer {
+    background-color: var(--color-cherokee);
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  a {
+    color: var(--color-crusta);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--color-hit-pink);
+    text-decoration: underline;
+  }
+  
+  .nav-link {
+    color: white !important;
+    font-weight: bold;
+  }
+  
+  .nav-link:hover {
+    color: var(--color-crusta) !important;
+  }
+  .logo {
+    height: 50px;  /* Ajuste la hauteur du logo */
+    width: auto;   /* Garde les proportions du logo */
+  }
+  .profile-picture {
+    width: 150px;  /* Largeur de l'image */
+    height: 150px; /* Hauteur de l'image */
+    border-radius: 50%; /* Pour une image ronde */
+    object-fit: cover;  /* Pour éviter la déformation */
+    border: 3px solid var(--color-crusta); /* Bordure colorée */
+  }
+ .marque{
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #fc783b, #fcb38b, #fccd9b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-animation 3s ease infinite;
+ }
+ @keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

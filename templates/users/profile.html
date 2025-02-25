@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profil de {{ user.username }}{% endblock %}
+
+{% block content %}
+  <div class="profile-container">
+    <h1>Profil de {{ user.username }}</h1>
+    {% if user.profile.profile_picture %}
+      <img src="{{ user.profile.profile_picture.url }}" alt="Photo de profil" class="profile-picture">
+    {% else %}
+      <p>Aucune photo de profil disponible.</p>
+    {% endif %}
+    <p>Email : {{ user.email }}</p>
+    <a href="{% url 'profile_update' %}" class="btn btn-primary">Modifier le profil</a>
+  </div>
+{% endblock %}

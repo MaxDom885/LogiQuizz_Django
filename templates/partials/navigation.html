@@ -1,0 +1,41 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-hit-pink">
+    <div class="container-fluid">
+      <a class="nav-link" href="{% url 'home' %}">
+        Accueil
+    </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'category_list' %}">Catégories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'scoreboard' %}">Tableau des scores</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profile' %}">Profil</a>
+            </li>
+            <li class="nav-item">
+                <form action="{% url 'logout' %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-link nav-link">Déconnexion</button>
+                  </form>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Connexion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}">Inscription</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>

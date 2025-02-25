@@ -1,0 +1,23 @@
+/* Section principale */
+.hero-section {
+    background-color: var(--color-cinderella);
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .hero-section h1 {
+    color: var(--color-crusta);
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-section p {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .hero-section .btn-primary {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+  }

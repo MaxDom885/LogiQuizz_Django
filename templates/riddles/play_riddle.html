@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Devinette - Jeu de devinettes{% endblock %}
+
+{% block content %}
+  <div class="riddle-container">
+    <h1>Devinette</h1>
+
+   
+
+    {% if riddle %}
+      <p>{{ riddle.question }}</p>
+      <form method="post" action="{% url 'validate_answer' riddle.id %}">
+        {% csrf_token %}
+        <input type="text" name="answer" placeholder="Votre réponse" class="form-control mb-2">
+        <button type="submit" class="btn btn-primary mb-2">Valider</button>
+      </form>
+      <form method="post" action="{% url 'request_hint' riddle.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-secondary mb-2">Demander un indice</button>
+      </form>
+      <form method="post" action="{% url 'skip_riddle' riddle.category.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-warning mb-2">Passer</button>
+      </form>
+      {% if hint %}
+        <p class="mt-3"><strong>Indice :</strong> {{ hint }}</p>
+      {% endif %}
+    {% else %}
+      <p>Félicitations ! Vous avez terminé toutes les devinettes de la catégorie "{{ category.name }}".</p>
+      <a href="{% url 'category_list' %}" class="btn btn-primary mb-2">Choisir une autre catégorie</a>
+      <form method="post" action="{% url 'reset_played_riddles' category.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-secondary mb-2">Recommencer cette catégorie</button>
+      </form>
+    {% endif %}
+  </div>
+{% endblock %}

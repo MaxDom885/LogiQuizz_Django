@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Accueil - Jeu de devinettes{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="hero-section">
+    <h1>🎯 Testez votre logique et votre culture !</h1>
+    <p>Jouez, réfléchissez et devenez le maître des devinettes !</p>
+    {% if user.is_authenticated %}
+      <a href="{% url 'category_list' %}" class="btn btn-primary">Commencer</a>
+    {% else %}
+      <a href="{% url 'login' %}?next={% url 'category_list' %}" class="btn btn-primary">Commencer</a>
+    {% endif %}
+  </div>
+{% endblock %}
